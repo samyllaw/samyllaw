@@ -849,6 +849,7 @@ code    { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85em; bac
   justify-content: center;
   gap: var(--s3);
   margin-top: var(--s3);
+  margin-bottom: var(--s8);
 }
 .contact__btn {
   display: inline-flex;
