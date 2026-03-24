@@ -174,115 +174,41 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 })();
 
 
-/* ── 7. PROJECT PAGES + HISTORY ────────────────────────────── */
+/* ── 7. PROJECT/ARTICLE PAGES ───────────────────────────────────────── */
 (function initProjectPages() {
   const portfolio = $('#mainPortfolio');
   const footer    = $('.footer');
-  const DEFAULT_TITLE = 'Samylla W. — Design Engineer';
   let savedScrollY = 0;
 
-  function getPageEl(id) {
-    return $(`#page-${id}`);
-  }
-
-  function getPageTitle(page) {
-    return page.querySelector('.page-nav__title')?.textContent?.trim() || 'Page';
-  }
-
-  function showPage(id, { updateHistory = false } = {}) {
-    const page = getPageEl(id);
+  function openPage(id) {
+    const page = $(`#page-${id}`);
     if (!page) return;
-
     savedScrollY = window.scrollY;
-
-    $$('.project-page').forEach(p => {
-      p.style.display = 'none';
-      p.setAttribute('aria-hidden', 'true');
-      p.classList.remove('is-open');
-    });
-
     portfolio.style.display = 'none';
     if (footer) footer.style.display = 'none';
-
     page.style.display = 'block';
     page.setAttribute('aria-hidden', 'false');
     page.classList.add('is-open');
-
     window.scrollTo(0, 0);
-    document.title = `${getPageTitle(page)} — Samylla W.`;
-
-    if (updateHistory) {
-      history.pushState(
-        { type: 'page', id, scrollY: savedScrollY },
-        '',
-        `#${id}`
-      );
-    }
+    document.title = (page.querySelector('.page-nav__title')?.textContent || '') + ' — Samylla W.';
   }
 
-  function hidePages({ restoreScroll = true } = {}) {
+  function closePage() {
     $$('.project-page').forEach(p => {
       p.style.display = 'none';
       p.setAttribute('aria-hidden', 'true');
       p.classList.remove('is-open');
     });
-
     portfolio.style.display = '';
     if (footer) footer.style.display = '';
-    document.title = DEFAULT_TITLE;
-
-    if (restoreScroll) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          window.scrollTo(0, savedScrollY);
-        });
-      });
-    }
+    document.title = 'Samylla W. — Design Engineer';
+    // Two rAF frames so the portfolio is fully painted before scrolling
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, savedScrollY)));
   }
 
-  function closeViaHistory() {
-    if (history.state?.type === 'page') {
-      history.back();
-    } else {
-      hidePages();
-      history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
-  }
-
-  $$('[data-project]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showPage(btn.dataset.project, { updateHistory: true });
-    });
-  });
-
-  $$('[data-article]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showPage(`article-${btn.dataset.article}`, { updateHistory: true });
-    });
-  });
-
-  $$('[data-close]').forEach(btn => {
-    btn.addEventListener('click', closeViaHistory);
-  });
-
-  window.addEventListener('popstate', (event) => {
-    if (event.state?.type === 'page' && event.state.id) {
-      showPage(event.state.id, { updateHistory: false });
-    } else {
-      hidePages();
-    }
-  });
-
-  window.addEventListener('load', () => {
-    const hash = window.location.hash.replace('#', '').trim();
-    if (!hash) return;
-
-    const page = getPageEl(hash);
-    if (!page) return;
-
-    history.replaceState({ type: 'page', id: hash, scrollY: 0 }, '', `#${hash}`);
-    showPage(hash, { updateHistory: false });
-  });
+  $$('[data-project]').forEach(btn => btn.addEventListener('click', () => openPage(btn.dataset.project)));
+  $$('[data-article]').forEach(btn => btn.addEventListener('click', () => openPage('article-' + btn.dataset.article)));
+  $$('[data-close]').forEach(btn => btn.addEventListener('click', closePage));
 })();
 
 
