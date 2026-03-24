@@ -68,49 +68,7 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
   document.addEventListener('click', e => { if (!moreWrapper.contains(e.target)) closeMore(); });
 })();
 
-
-/* ── 3. CONTACT FORM ────────────────────────────────────────── */
-(function initForm() {
-  const form    = $('#contactForm');
-  if (!form) return;
-  const name    = $('#name');
-  const email   = $('#email');
-  const message = $('#message');
-  const success = $('#formSuccess');
-  const EMAIL   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const err = (el, eEl, msg) => { el.classList.add('is-invalid'); eEl.textContent = msg; };
-  const ok  = (el, eEl)      => { el.classList.remove('is-invalid'); eEl.textContent = ''; };
-  function validate() {
-    let valid = true;
-    const ne = $('#nameError'), ee = $('#emailError'), me = $('#messageError');
-    if (!name.value.trim())                   { err(name,    ne, 'Please enter your name.');            valid = false; } else ok(name, ne);
-    if (!email.value.trim())                  { err(email,   ee, 'Please enter your email.');            valid = false; }
-    else if (!EMAIL.test(email.value.trim())) { err(email,   ee, 'Please enter a valid email address.'); valid = false; } else ok(email, ee);
-    if (!message.value.trim())                { err(message, me, 'Please write your message.');          valid = false; } else ok(message, me);
-    return valid;
-  }
-  [name, email, message].forEach(el => {
-    el.addEventListener('input', () => { el.classList.remove('is-invalid'); const e = $(`#${el.id}Error`); if (e) e.textContent = ''; });
-  });
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    success.classList.remove('is-visible');
-    if (!validate()) return;
-    const btn = form.querySelector('[type="submit"]');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    setTimeout(() => {
-      form.reset();
-      ['name','email','message'].forEach(id => ok($(`#${id}`), $(`#${id}Error`)));
-      success.classList.add('is-visible');
-      success.setAttribute('aria-hidden', 'false');
-      btn.textContent = 'Send message'; btn.disabled = false;
-      setTimeout(() => { success.classList.remove('is-visible'); success.setAttribute('aria-hidden','true'); }, 5000);
-    }, 900);
-  });
-})();
-
-
-/* ── 4. SCROLL REVEAL ───────────────────────────────────────── */
+/* ── 3. SCROLL REVEAL ───────────────────────────────────────── */
 (function initReveal() {
   const SINGLE   = '.reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade';
   const STAGGER  = '.stagger-children';
@@ -150,7 +108,7 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 })();
 
 
-/* ── 5. SCROLLSPY ───────────────────────────────────────────── */
+/* ── 4. SCROLLSPY ───────────────────────────────────────────── */
 (function initScrollspy() {
   const sections = $$('section[id]');
   const links    = $$('.nav__link, .nav__dropdown-link');
@@ -169,7 +127,7 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 })();
 
 
-/* ── 6. SCROLL PROGRESS + NAV BLUR ─────────────────────────── */
+/* ── 5. SCROLL PROGRESS + NAV BLUR ─────────────────────────── */
 (function initScroll() {
   const bar = $('#scrollProgress');
   const nav = $('.nav-wrapper');
@@ -182,7 +140,7 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 })();
 
 
-/* ── 7. HERO CANVAS ─────────────────────────────────────────── */
+/* ── 6. HERO CANVAS ─────────────────────────────────────────── */
 (function initHeroCanvas() {
   const canvas = $('#heroCanvas');
   if (!canvas) return;
@@ -217,45 +175,119 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 })();
 
 
-/* ── 8. PROJECT PAGES ───────────────────────────────────────── */
+/* ── 7. PROJECT PAGES + HISTORY ────────────────────────────── */
 (function initProjectPages() {
   const portfolio = $('#mainPortfolio');
   const footer    = $('.footer');
+  const DEFAULT_TITLE = 'Samylla W. — Design Engineer';
   let savedScrollY = 0;
 
-  function openPage(id) {
-    const page = $(`#page-${id}`);
-    if (!page) return;
-    savedScrollY = window.scrollY;
-    portfolio.style.display = 'none';
-    if (footer) footer.style.display = 'none';
-    page.style.display = 'block';
-    page.setAttribute('aria-hidden', 'false');
-    page.classList.add('is-open');
-    window.scrollTo(0, 0);
-    document.title = (page.querySelector('.page-nav__title')?.textContent || '') + ' — Samylla W.';
+  function getPageEl(id) {
+    return $(`#page-${id}`);
   }
 
-  function closePage() {
+  function getPageTitle(page) {
+    return page.querySelector('.page-nav__title')?.textContent?.trim() || 'Page';
+  }
+
+  function showPage(id, { updateHistory = false } = {}) {
+    const page = getPageEl(id);
+    if (!page) return;
+
+    savedScrollY = window.scrollY;
+
     $$('.project-page').forEach(p => {
       p.style.display = 'none';
       p.setAttribute('aria-hidden', 'true');
       p.classList.remove('is-open');
     });
-    portfolio.style.display = '';
-    if (footer) footer.style.display = '';
-    document.title = 'Samylla W. — Design Engineer';
-    // Two rAF frames so the portfolio is fully painted before scrolling
-    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, savedScrollY)));
+
+    portfolio.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+
+    page.style.display = 'block';
+    page.setAttribute('aria-hidden', 'false');
+    page.classList.add('is-open');
+
+    window.scrollTo(0, 0);
+    document.title = `${getPageTitle(page)} — Samylla W.`;
+
+    if (updateHistory) {
+      history.pushState(
+        { type: 'page', id, scrollY: savedScrollY },
+        '',
+        `#${id}`
+      );
+    }
   }
 
-  $$('[data-project]').forEach(btn => btn.addEventListener('click', () => openPage(btn.dataset.project)));
-  $$('[data-article]').forEach(btn => btn.addEventListener('click', () => openPage('article-' + btn.dataset.article)));
-  $$('[data-close]').forEach(btn => btn.addEventListener('click', closePage));
+  function hidePages({ restoreScroll = true } = {}) {
+    $$('.project-page').forEach(p => {
+      p.style.display = 'none';
+      p.setAttribute('aria-hidden', 'true');
+      p.classList.remove('is-open');
+    });
+
+    portfolio.style.display = '';
+    if (footer) footer.style.display = '';
+    document.title = DEFAULT_TITLE;
+
+    if (restoreScroll) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.scrollTo(0, savedScrollY);
+        });
+      });
+    }
+  }
+
+  function closeViaHistory() {
+    if (history.state?.type === 'page') {
+      history.back();
+    } else {
+      hidePages();
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
+  $$('[data-project]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showPage(btn.dataset.project, { updateHistory: true });
+    });
+  });
+
+  $$('[data-article]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showPage(`article-${btn.dataset.article}`, { updateHistory: true });
+    });
+  });
+
+  $$('[data-close]').forEach(btn => {
+    btn.addEventListener('click', closeViaHistory);
+  });
+
+  window.addEventListener('popstate', (event) => {
+    if (event.state?.type === 'page' && event.state.id) {
+      showPage(event.state.id, { updateHistory: false });
+    } else {
+      hidePages();
+    }
+  });
+
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#', '').trim();
+    if (!hash) return;
+
+    const page = getPageEl(hash);
+    if (!page) return;
+
+    history.replaceState({ type: 'page', id: hash, scrollY: 0 }, '', `#${hash}`);
+    showPage(hash, { updateHistory: false });
+  });
 })();
 
 
-/* ── 9. SCROLL TO TOP BUTTON ────────────────────────────────── */
+/* ── 8. SCROLL TO TOP BUTTON ────────────────────────────────── */
 (function initScrollTop() {
   const btn = document.createElement('button');
   btn.className = 'scroll-top';
