@@ -201,7 +201,7 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
     });
     portfolio.style.display = '';
     if (footer) footer.style.display = '';
-    document.title = 'Samylla W. — Design Engineer';
+    document.title = 'Samylla W.';
     // Two rAF frames so the portfolio is fully painted before scrolling
     requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, savedScrollY)));
   }
