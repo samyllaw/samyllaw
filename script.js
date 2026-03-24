@@ -2,12 +2,11 @@
  * script.js — Portfolio · Samylla W.
  * 1. Theme toggle
  * 2. Hamburger + More dropdown
- * 3. Contact form
- * 4. Scroll reveal (.reveal-up, .stagger-children)
- * 5. Scrollspy
- * 6. Scroll progress + nav blur
- * 7. Hero dot-grid canvas
- * 8. Project page open/close
+ * 3. Scroll reveal (.reveal-up, .stagger-children)
+ * 4. Scrollspy
+ * 5. Scroll progress + nav blur
+ * 6. Hero dot-grid canvas
+ * 7. Project page open/close
  */
 
 const $ = (s, p = document) => p.querySelector(s);
