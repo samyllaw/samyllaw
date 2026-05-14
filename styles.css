@@ -528,12 +528,21 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
   .section { padding: 0 24px 48px; }
   .row, .article-row { grid-template-columns: 1fr; gap: 10px; }
   .contact { padding: 48px 24px; }
-  .footer { padding: 20px 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .footer { padding: 20px 24px; flex-direction: column; gap: 16px; align-items: center; text-align: center; }
   .overlay__body { padding: 40px 24px 80px; }
   .overlay__header { padding: 14px 24px; }
   .overlay__content ol li { grid-template-columns: 32px 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; }
   .marquee-wrap { margin-left: -24px; margin-right: -24px; }
+  .header__theme { padding: 8px; min-width: 36px; min-height: 36px; justify-content: center; }
+  .header__cta { font-size: 12px; }
+  .header__controls { gap: 12px; }
+}
+
+/* ── Hide custom cursor on touch devices ── */
+@media (hover: none) and (pointer: coarse) {
+  * { cursor: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
 }
 
 /* ── Polaroid hover gallery ── */

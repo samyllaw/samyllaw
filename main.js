@@ -1,42 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Custom cursor
+  // Custom cursor — desktop only
+  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
-  let mouseX = -100, mouseY = -100;
-  let ringX = -100, ringY = -100;
 
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.left = mouseX + 'px';
-    dot.style.top  = mouseY + 'px';
-    document.body.classList.remove('cursor-hidden');
-  });
+  if (!isTouchDevice) {
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
 
-  document.addEventListener('mouseleave', () => document.body.classList.add('cursor-hidden'));
-  document.addEventListener('mouseenter', () => document.body.classList.remove('cursor-hidden'));
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top  = mouseY + 'px';
+      document.body.classList.remove('cursor-hidden');
+    });
 
-  // Ring follows with smooth lag
-  (function animateRing() {
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
-    ring.style.left = ringX + 'px';
-    ring.style.top  = ringY + 'px';
-    requestAnimationFrame(animateRing);
-  })();
+    document.addEventListener('mouseleave', () => document.body.classList.add('cursor-hidden'));
+    document.addEventListener('mouseenter', () => document.body.classList.remove('cursor-hidden'));
 
-  // Hover state on interactive elements
-  const interactives = 'a, button, [onclick], input, label, .article-row, .tag';
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(interactives)) document.body.classList.add('cursor-hover');
-  });
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest(interactives)) document.body.classList.remove('cursor-hover');
-  });
+    (function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    })();
 
-  // Click state
-  document.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
-  document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-clicking'));
+    const interactives = 'a, button, [onclick], input, label, .article-row, .tag';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(interactives)) document.body.classList.add('cursor-hover');
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(interactives)) document.body.classList.remove('cursor-hover');
+    });
+
+    document.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
+    document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-clicking'));
+  }
 
   // Hero headline
   const headline = document.querySelector('.hero__headline');
@@ -207,5 +208,20 @@ hero.addEventListener('mousemove', (e) => {
   mouseY = e.clientY;
   spawnPolaroid(mouseX, mouseY);
 });
+
+// Touch support: tap to spawn polaroids, auto-clear after 3s
+hero.addEventListener('touchstart', (e) => {
+  const touch = e.touches[0];
+  spawnPolaroid(touch.clientX, touch.clientY);
+  clearTimeout(hero._touchClearTimer);
+  hero._touchClearTimer = setTimeout(() => clearAll(), 3000);
+}, { passive: true });
+
+hero.addEventListener('touchmove', (e) => {
+  const touch = e.touches[0];
+  spawnPolaroid(touch.clientX, touch.clientY);
+  clearTimeout(hero._touchClearTimer);
+  hero._touchClearTimer = setTimeout(() => clearAll(), 3000);
+}, { passive: true });
 
 })();
