@@ -207,21 +207,23 @@ hero.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
   spawnPolaroid(mouseX, mouseY);
+  clearTimeout(hero._clearTimer);
+  hero._clearTimer = setTimeout(() => clearAll(), 3000);
 });
 
-// Touch support: tap to spawn polaroids, auto-clear after 3s
+// Touch support
 hero.addEventListener('touchstart', (e) => {
   const touch = e.touches[0];
   spawnPolaroid(touch.clientX, touch.clientY);
-  clearTimeout(hero._touchClearTimer);
-  hero._touchClearTimer = setTimeout(() => clearAll(), 3000);
+  clearTimeout(hero._clearTimer);
+  hero._clearTimer = setTimeout(() => clearAll(), 3000);
 }, { passive: true });
 
 hero.addEventListener('touchmove', (e) => {
   const touch = e.touches[0];
   spawnPolaroid(touch.clientX, touch.clientY);
-  clearTimeout(hero._touchClearTimer);
-  hero._touchClearTimer = setTimeout(() => clearAll(), 3000);
+  clearTimeout(hero._clearTimer);
+  hero._clearTimer = setTimeout(() => clearAll(), 3000);
 }, { passive: true });
 
 })();

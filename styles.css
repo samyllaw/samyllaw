@@ -543,6 +543,7 @@ body.cursor-hidden .cursor-ring { opacity: 0; }
 @media (hover: none) and (pointer: coarse) {
   * { cursor: auto !important; }
   .cursor-dot, .cursor-ring { display: none !important; }
+  .polaroid { pointer-events: none; }
 }
 
 /* ── Polaroid hover gallery ── */
