@@ -355,3 +355,12 @@ footer.site { display: block; }
 
 /* Mobile menu visibility */
 #m-menu[hidden] { display: none !important; }
+
+/* Sticky header */
+.nav-root header { position: fixed !important; background: #FFFFFF; }
+@media (max-width: 809px) {
+  .nav-root header > div { grid-template-columns: minmax(0, 1fr) auto !important; }
+  .art-r { height: 44% !important; right: -36px !important; }
+  .art-l { height: 28% !important; left: -24px !important; }
+  .quote { margin-top: -24vh !important; }
+}
