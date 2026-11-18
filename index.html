@@ -1,380 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samylla W.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samylla W. — Senior Product Designer &amp; Design Engineer</title>
+<meta name="description" content="Samylla W. — Senior Product Designer and Design Engineer working across product strategy, UX/UI, design systems and frontend development. Brazil · Remote.">
+<meta property="og:title" content="Samylla W. — Senior Product Designer &amp; Design Engineer">
+<meta property="og:description" content="Samylla W. — Senior Product Designer and Design Engineer working across product strategy, UX/UI, design systems and frontend development. Brazil · Remote.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preload" href="assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js" defer></script>
 </head>
 <body>
-
-  <!-- Custom cursor -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <header class="header" id="header">
-    <div class="header__brand">
-      <div class="header__text">
-        <span class="header__name">Samylla W.</span>
-        <span class="header__subtitle">Design Engineer</span>
+<div class="site page-in" style="background: #FFFFFF">
+<a class="skip" href="#main">Skip to content</a>
+<div class="site nav-root" style="background: transparent; min-height: 0; overflow: visible; color: #000000">
+  <header style="position: absolute; top: 0; left: 0; right: 0; z-index: 40">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; padding: 8px var(--gutter)">
+      <a class="mn" href="index.html" style="justify-self: start"><span class="roll" aria-hidden="true"><span class="ch" style="--d: 0.000s">S</span><span class="ch" style="--d: 0.020s">a</span><span class="ch" style="--d: 0.040s">m</span><span class="ch" style="--d: 0.060s">y</span><span class="ch" style="--d: 0.080s">l</span><span class="ch" style="--d: 0.100s">l</span><span class="ch" style="--d: 0.120s">a</span><span class="ch" style="--d: 0.140s"> </span><span class="ch" style="--d: 0.160s">W</span><span class="ch" style="--d: 0.180s">.</span></span><span class="sr-only">Samylla W., home</span></a>
+      <nav aria-label="Primary" class="hide-mobile"><ul style="display: flex; gap: 18px; align-items: center"><li><a class="mn" href="index.html" aria-current="page"><span class="roll" aria-hidden="true"><span class="ch" style="--d: 0.000s">H</span><span class="ch" style="--d: 0.020s">o</span><span class="ch" style="--d: 0.040s">m</span><span class="ch" style="--d: 0.060s">e</span></span><span class="sr-only">Home</span></a></li><li><a class="mn" href="about.html"><span class="roll" aria-hidden="true"><span class="ch" style="--d: 0.000s">A</span><span class="ch" style="--d: 0.020s">b</span><span class="ch" style="--d: 0.040s">o</span><span class="ch" style="--d: 0.060s">u</span><span class="ch" style="--d: 0.080s">t</span></span><span class="sr-only">About</span></a></li><li><a class="mn" href="works.html"><span class="roll" aria-hidden="true"><span class="ch" style="--d: 0.000s">W</span><span class="ch" style="--d: 0.020s">o</span><span class="ch" style="--d: 0.040s">r</span><span class="ch" style="--d: 0.060s">k</span><span class="ch" style="--d: 0.080s">s</span></span><span class="sr-only">Works</span></a></li></ul></nav>
+      <div style="justify-self: end; display: flex; align-items: center">
+        <a class="mn hide-mobile" href="mailto:samyllacontato@gmail.com?subject=%F0%9F%91%8B%F0%9F%8F%BB%20Hi%20(from%20your%20website)"><span class="roll" aria-hidden="true"><span class="ch" style="--d: 0.000s">C</span><span class="ch" style="--d: 0.020s">o</span><span class="ch" style="--d: 0.040s">n</span><span class="ch" style="--d: 0.060s">t</span><span class="ch" style="--d: 0.080s">a</span><span class="ch" style="--d: 0.100s">c</span><span class="ch" style="--d: 0.120s">t</span></span><span class="sr-only">Contact by email</span><svg class="arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8 8 2M3 2h5v5" stroke="currentColor" stroke-width="1.1"/></svg></a>
+        <button class="mn only-mobile" type="button" data-menu-open aria-expanded="false" aria-controls="m-menu">Menu</button>
       </div>
-    </div>
-
-    <nav class="header__nav">
-      <a href="#about" class="header__nav-link">About</a>
-      <a href="#case-studies" class="header__nav-link">Projects</a>
-      <a href="#work" class="header__nav-link">Experience</a>
-      <a href="#writing" class="header__nav-link">Writing</a>
-      <a href="#tools" class="header__nav-link">Process</a>
-      <a href="#contact" class="header__nav-link">Contact</a>
-    </nav>
-
-    <div class="header__controls">
-      <button class="header__theme" id="themeToggle" aria-label="Toggle theme">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="5"/>
-          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-      </button>
-      <a class="header__cta" href="https://drive.google.com/file/d/1w9a0PCBW8F6cBURgAN0m1xwI9LjJmWQU/view?usp=sharing" target="_blank">
-        <span>CV</span>
-        <svg class="header__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
     </div>
   </header>
-
-  <!-- HERO -->
-  <main class="hero" id="hero">
-    <div class="hero__content">
-      <p class="hero__headline">
-        <span class="hero__line hero__line--muted">Always looking for coffee and new books. Also a </span><span class="hero__line hero__line--bold">Design Engineer who enjoys turning complex problems into scalable, thoughtful solutions.</span>
-      </p>
-    </div>
-  </main>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="section__header">
-      <span class="section__label">About</span>
-    </div>
-    <div>
-      <div class="row">
-        <span class="row__key"></span>
-        <div>
-          <p class="row__name">Bridging product, design, and engineering to build scalable digital systems and thoughtful user experiences.</p>
-        </div>
-      </div>
-      <div class="row">
-        <span class="row__key"></span>
-        <div>
-          <p class="row__desc">My work is focused on product strategy, systems thinking, and implementation, translating complex business and user needs into clear, structured, and scalable solutions. I have experience working across enterprise platforms, design systems, accessibility (WCAG), AI-powered experiences, and cross-functional product development, collaborating closely with product and engineering teams from discovery to delivery.</p>
-        </div>
-      </div>
-      <div class="row">
-        <span class="row__key"></span>
-        <div>
-          <div class="tags">
-            <span class="tag">Design Engineering</span>
-            <span class="tag">Systems Thinking</span>
-            <span class="tag">Frontend Dev</span>
-            <span class="tag">WCAG / A11y</span>
-            <span class="tag">AI Workflows</span>
-            <span class="tag">Product Management</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <span class="row__key"></span>
-        <div>
-          <div class="status">
-            <span class="status__dot"></span>
-            <span>Available for new projects</span>
-          </div>
-          <div class="inline-links">
-            <a class="inline-link" href="https://www.linkedin.com/in/samylla-w/" target="_blank">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:11px;height:11px;vertical-align:middle;margin-left:2px"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-            <a class="inline-link" href="https://github.com/samyllaw" target="_blank">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:11px;height:11px;vertical-align:middle;margin-left:2px"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="case-studies">
-    <div class="section__header">
-      <span class="section__label">Projects</span>
-    </div>
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span class="marquee-content" aria-hidden="true">Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;</span>
-        <span class="marquee-content" aria-hidden="true">Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;Case Studies in Progress&nbsp;&nbsp;·&nbsp;&nbsp;</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section" id="work">
-    <div class="section__header">
-      <span class="section__label">Selected Experience</span>
-    </div>
-    <div>
-
-      <div class="row">
-        <div class="row__key">
-          <div>BOOMIE</div>
-          <div>Mar 2026 – Present</div>
-        </div>
-        <div>
-          <h3 class="row__name">Founder &amp; Design Engineer</h3>
-          <p class="row__desc">Independent design studio focused on product experiences, scalable systems, and modern digital platforms. Exploring the space between product strategy, UX systems, and engineering through collaborative and technology-driven work.</p>
-          <div class="tags">
-            <span class="tag">Product Management</span>
-            <span class="tag">UX/UI Design</span>
-            <span class="tag">Product Discovery</span>
-            <span class="tag">User Research</span>
-            <span class="tag">Design Systems</span>
-            <span class="tag">Frontend Collaboration</span>
-            <span class="tag">Interactive Prototyping</span>
-            <span class="tag">Cross-functional Collaboration</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="row__key">
-          <div>EULER</div>
-          <div>Nov 2024 – Present</div>
-        </div>
-        <div>
-          <h3 class="row__name">Senior Product Designer</h3>
-          <p class="row__desc">Leading product and system design initiatives for a PRM platform, including design systems, AI-powered experiences, accessibility improvements, and scalable workflows. Working across discovery, strategy, UX architecture, and cross-functional collaboration with product and engineering teams.</p>
-          <div class="tags">
-            <span class="tag">Figma</span>
-            <span class="tag">HTML/CSS/JS</span>
-            <span class="tag">Design Systems</span>
-            <span class="tag">WCAG 2.2</span>
-            <span class="tag">Product Strategy</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="row__key">
-          <div>ioasys / Havaianas</div>
-          <div>3 years</div>
-        </div>
-        <div>
-          <h3 class="row__name">Product Designer</h3>
-          <p class="row__desc">Designed end-to-end digital experiences for web and mobile products, balancing user needs, business goals, and scalable UX decisions across large-scale initiatives and multidisciplinary teams.</p>
-          <div class="tags">
-            <span class="tag">User Research</span>
-            <span class="tag">Figma</span>
-            <span class="tag">Design Systems</span>
-            <span class="tag">WCAG 2.2</span>
-            <span class="tag">Product Strategy</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="row__key">
-          <div>ioasys + Alpargatas</div>
-          <div>Jul – Nov 2021</div>
-        </div>
-        <div>
-          <h3 class="row__name">UX/UI Designer Intern</h3>
-          <p class="row__desc">Supported product discovery through benchmarking, competitive analysis, and UX exploration for e-commerce experiences, contributing to strategic and user-centered decision-making.</p>
-          <div class="tags">
-            <span class="tag">UX Research</span>
-            <span class="tag">UI Design</span>
-            <span class="tag">Competitive Analysis</span>
-            <span class="tag">Figma</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WRITING -->
-  <section class="section" id="writing">
-    <div class="section__header">
-      <span class="section__label">Articles &amp; Thoughts</span>
-    </div>
-    <div>
-      <div class="article-row" onclick="openArticle()">
-        <div class="article-row__meta">
-          <span class="article-row__cat">Accessibility</span>
-          <span class="article-row__date">Feb 2025 · 3 min read</span>
-        </div>
-        <div>
-          <h3 class="row__name">Inclusive Design and Principles for More Accessible Digital Products</h3>
-          <p class="row__desc">Leading and applying accessibility best practices in digital products is meaningful, but challenging. This piece explores key principles for inclusive design and grounds them in WCAG guidelines.</p>
-          <a class="article-row__read" href="#" onclick="event.preventDefault()">
-            <span>Read article</span>
-            <svg class="article-row__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M5 12h14M13 6l6 6-6 6"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section" id="tools">
-    <div class="section__header">
-      <span class="section__label">How I Work</span>
-    </div>
-    <div class="process-grid">
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">01</span>
-          <span class="process-card__name">Problem</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">Understanding the real question before jumping to solutions. Stakeholder alignment, constraints mapping, success metrics.</p></div></div>
-      </div>
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">02</span>
-          <span class="process-card__name">System Model</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">Mapping entities, relationships, and data flows. Building a shared mental model before any interface work begins.</p></div></div>
-      </div>
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">03</span>
-          <span class="process-card__name">Interaction Architecture</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">Defining flows, states, and information hierarchy. Low-fidelity wireframes that answer structural questions first.</p></div></div>
-      </div>
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">04</span>
-          <span class="process-card__name">Functional Prototype</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">A working, interactive artifact to surface real friction before any engineering begins.</p></div></div>
-      </div>
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">05</span>
-          <span class="process-card__name">Component Engineering</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">Building production-ready components with token-driven design, accessibility baked in, and edge cases covered.</p></div></div>
-      </div>
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">06</span>
-          <span class="process-card__name">Ship &amp; Measure</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">Collaborating through implementation, reviewing build quality, then tracking outcomes against defined success metrics.</p></div></div>
-      </div>
-      <div class="process-card">
-        <button class="process-card__trigger" onclick="toggleAccordion(this)">
-          <span class="process-card__num">07</span>
-          <span class="process-card__name">System Evolution</span>
-          <svg class="process-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-        </button>
-        <div class="process-card__body"><div class="process-card__inner"><p class="process-card__desc">Feeding learnings back into the system model. Iterating continuously on components, patterns, and documentation.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <p class="contact__label">Contact</p>
-    <h2 class="contact__heading">Let's work<br>together.</h2>
-    <p class="contact__detail">Brazil · Remote &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/samylla-w/" target="_blank">linkedin.com/in/samylla-w</a></p>
-    <a class="contact__cta" href="mailto:samyllacontato@gmail.com?subject=👋🏻 Hi (from your website)">
-      <span>Get in touch</span>
-      <svg class="contact__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M5 12h14M13 6l6 6-6 6"/>
-      </svg>
-    </a>
-  </section>
-
-  <footer class="footer">
-    <span class="footer__copy">© 2026 Samylla W.</span>
-    <nav class="footer__nav">
-      <a href="https://www.linkedin.com/in/samylla-w/" target="_blank" class="footer__link">LinkedIn</a>
-      <a href="https://github.com/samyllaw" target="_blank" class="footer__link">GitHub</a>
-    </nav>
-  </footer>
-
-  <!-- ARTICLE OVERLAY -->
-  <div class="overlay" id="articleOverlay">
-    <div class="overlay__header">
-      <button class="overlay__back" onclick="closeArticle()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-        Back
-      </button>
-      <span class="overlay__meta">Accessibility · Feb 2025 · 3 min read</span>
-    </div>
-    <div class="overlay__body">
-      <p class="overlay__tag">Accessibility</p>
-      <h1 class="overlay__title">Inclusive Design and Principles for More Accessible Digital Products</h1>
-      <div class="overlay__content">
-
-        <h2>What is inclusive design?</h2>
-        <blockquote>
-          <p>"Exclusion happens when we solve problems using our own biases. We seek out exclusions, and use them as opportunities to create new and better experiences." — Microsoft Inclusive Design</p>
-        </blockquote>
-        <p>Building inclusive digital solutions means looking at the experience as a whole: who is using the product and how they interact with it. When we think about people, it's important to remember that everyone has limitations, and those limitations can be permanent, temporary, or situational.</p>
-        <h3>Permanent limitations</h3>
-        <p>These may include different types of disabilities, such as cognitive, auditory, mobility, speech, or visual impairments. Age-related changes that happen over time also fall into this category.</p>
-        <h3>Temporary limitations</h3>
-        <p>These affect us for a limited period of time. A sore throat caused by the flu, for example, may make it uncomfortable to speak, turning something as simple as answering a phone call into a challenge.</p>
-        <h3>Situational limitations</h3>
-        <p>These are influenced by external factors. Using a phone outdoors under strong sunlight can make content difficult to see on screen, even with brightness at 100%.</p>
-        <p>Keeping these scenarios in mind, digital accessibility and inclusive design work together to create better experiences. There is no single best practice that solves every possible use case.</p>
-        <blockquote>
-          <p>"If we use our own abilities as a baseline, we make things that are easy for some people to use, but difficult for everyone else." — Microsoft Inclusive Design</p>
-        </blockquote>
-
-        <h2>Building more accessible products</h2>
-        <p>The Web Content Accessibility Guidelines (WCAG) are based on four core principles:</p>
-        <ol>
-          <li>
-            <h3>Perceivable</h3>
-            <p>Information presented in the product should be clear and perceivable to all users. This includes text readability, color contrast, media usage, and clear visual distinction between interface elements.</p>
-          </li>
-          <li>
-            <h3>Operable</h3>
-            <p>All users should be able to operate and interact with the interface. Navigation should support keyboard and assistive technology, allow enough time to complete actions, and avoid creating unnecessary barriers.</p>
-          </li>
-          <li>
-            <h3>Understandable</h3>
-            <p>Content and interactions should be easy to understand. Users should always know what is happening in the interface and what is expected of them next, without having to guess.</p>
-          </li>
-          <li>
-            <h3>Robust</h3>
-            <p>Content should work across different devices, browsers, and assistive technologies. When creating new components, it's important to clearly define their name, role, and value.</p>
-          </li>
-        </ol>
-        <p>In practice, it's not always possible to meet every accessibility requirement throughout a product's lifecycle. There will always be opportunities to improve and revisit decisions.</p>
-        <p>According to Microsoft Inclusive Design, accessibility is an attribute, while inclusive design is a method. Inclusive design helps us recognize exclusion, learn from diversity, and think more broadly. No matter the scale, applying these principles leads to stronger, more thoughtful digital products.</p>
-
-        <div class="overlay__refs">
-          <p>References</p>
-          <a href="https://www.microsoft.com/design/inclusive/" target="_blank">Microsoft Inclusive Design</a>
-          <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank">Web Content Accessibility Guidelines (WCAG) 2.2 </a>
-        </div>
-
-      </div>
-    </div>
+  <div id="m-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden style="position: fixed; inset: 0; z-index: 90; background: #FFFFFF; color: #000000; display: flex; flex-direction: column; padding: 8px var(--gutter) 32px">
+    <div style="display: flex; justify-content: flex-end"><button class="mn" type="button" data-menu-close>Close</button></div>
+    <ul style="margin-top: auto; display: flex; flex-direction: column; gap: 2px"><li><a href="index.html" class="serif" style="font-size: 56px; line-height: 1.1; display: block" aria-current="page">Home</a></li><li><a href="about.html" class="serif" style="font-size: 56px; line-height: 1.1; display: block">About</a></li><li><a href="works.html" class="serif" style="font-size: 56px; line-height: 1.1; display: block">Works</a></li><li><a href="mailto:samyllacontato@gmail.com?subject=%F0%9F%91%8B%F0%9F%8F%BB%20Hi%20(from%20your%20website)" class="serif" style="font-size: 56px; line-height: 1.1; display: block">Contact</a></li></ul>
   </div>
-
-  <script src="main.js"></script>
+</div>
+<main id="main">
+  <section class="hero" aria-label="Introduction" data-hero>
+    <svg class="art art-r" viewBox="1040 140 200 762" preserveAspectRatio="xMidYMax meet" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <g class="sway">
+          <path class="draw" pathLength="1" d="M1130 266 C1124 340 1100 400 1104 470 C1108 540 1150 590 1146 680 C1142 760 1118 820 1124 900" stroke-width="1.6" style="--d: 0.10s"/>
+          <path class="draw" pathLength="1" d="M1104 470 C1094 520 1092 600 1110 660 C1124 708 1140 740 1146 780" stroke-width="1.6" style="--d: 0.35s"/>
+          <path class="draw" pathLength="1" d="M1112 640 C1092 614 1078 598 1068 590" stroke-width="1.6" style="--d: 0.60s"/>
+          <path class="draw" pathLength="1" d="M1116 662 C1126 630 1138 612 1150 600 C1146 624 1134 646 1118 664" stroke-width="1.6" style="--d: 0.85s"/>
+          <path class="draw" pathLength="1" d="M1128 262 C1100 252 1066 232 1062 214 C1060 202 1074 198 1092 206 C1110 214 1124 236 1128 262" stroke-width="1.5" style="--d: 1.10s"/>
+          <path class="draw" pathLength="1" d="M1126 258 C1112 226 1108 190 1118 168 C1124 156 1136 160 1140 176 C1146 202 1138 232 1128 258" stroke-width="1.5" style="--d: 1.28s"/>
+          <path class="draw" pathLength="1" d="M1132 256 C1144 222 1164 198 1186 194 C1200 192 1204 204 1196 218 C1182 238 1158 252 1132 260" stroke-width="1.5" style="--d: 1.46s"/>
+          <path class="draw" pathLength="1" d="M1134 262 C1164 254 1194 252 1212 262 C1222 268 1218 280 1204 282 C1180 286 1154 276 1134 264" stroke-width="1.5" style="--d: 1.64s"/>
+          <path class="draw" pathLength="1" d="M1126 264 C1110 272 1096 286 1098 296 C1100 304 1112 302 1120 292 C1126 284 1128 274 1128 264" stroke-width="1.5" style="--d: 1.82s"/>
+          <path class="draw" pathLength="1" d="M1128 258 C1116 234 1102 222 1080 212" stroke-width=".8" opacity=".6" style="--d: 2.00s"/>
+          <path class="draw" pathLength="1" d="M1131 256 C1128 222 1126 196 1128 176" stroke-width=".8" opacity=".6" style="--d: 2.10s"/>
+          <path class="draw" pathLength="1" d="M1132 256 C1150 232 1166 214 1184 202" stroke-width=".8" opacity=".6" style="--d: 2.20s"/>
+          <path class="draw" pathLength="1" d="M1134 262 C1160 262 1184 266 1206 272" stroke-width=".8" opacity=".6" style="--d: 2.30s"/>
+          <path class="seed" d="M1124 255 C1128 247 1139 249 1139 258 C1139 267 1128 271 1123 264 C1120 261 1121 258 1124 255 Z" fill="currentColor" stroke="none" style="--d: 2.40s"/>
+      </g>
+    </svg>
+    <svg class="art art-l" viewBox="1040 140 200 762" preserveAspectRatio="xMidYMax meet" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <g class="sway" style="animation-delay: 3s">
+          <path class="draw" pathLength="1" d="M1130 266 C1124 340 1100 400 1104 470 C1108 540 1150 590 1146 680 C1142 760 1118 820 1124 900" stroke-width="1.6" style="--d: 0.90s"/>
+          <path class="draw" pathLength="1" d="M1104 470 C1094 520 1092 600 1110 660 C1124 708 1140 740 1146 780" stroke-width="1.6" style="--d: 1.15s"/>
+          <path class="draw" pathLength="1" d="M1112 640 C1092 614 1078 598 1068 590" stroke-width="1.6" style="--d: 1.40s"/>
+          <path class="draw" pathLength="1" d="M1116 662 C1126 630 1138 612 1150 600 C1146 624 1134 646 1118 664" stroke-width="1.6" style="--d: 1.65s"/>
+          <path class="draw" pathLength="1" d="M1128 262 C1100 252 1066 232 1062 214 C1060 202 1074 198 1092 206 C1110 214 1124 236 1128 262" stroke-width="1.5" style="--d: 1.90s"/>
+          <path class="draw" pathLength="1" d="M1126 258 C1112 226 1108 190 1118 168 C1124 156 1136 160 1140 176 C1146 202 1138 232 1128 258" stroke-width="1.5" style="--d: 2.08s"/>
+          <path class="draw" pathLength="1" d="M1132 256 C1144 222 1164 198 1186 194 C1200 192 1204 204 1196 218 C1182 238 1158 252 1132 260" stroke-width="1.5" style="--d: 2.26s"/>
+          <path class="draw" pathLength="1" d="M1134 262 C1164 254 1194 252 1212 262 C1222 268 1218 280 1204 282 C1180 286 1154 276 1134 264" stroke-width="1.5" style="--d: 2.44s"/>
+          <path class="draw" pathLength="1" d="M1126 264 C1110 272 1096 286 1098 296 C1100 304 1112 302 1120 292 C1126 284 1128 274 1128 264" stroke-width="1.5" style="--d: 2.62s"/>
+          <path class="draw" pathLength="1" d="M1128 258 C1116 234 1102 222 1080 212" stroke-width=".8" opacity=".6" style="--d: 2.80s"/>
+          <path class="draw" pathLength="1" d="M1131 256 C1128 222 1126 196 1128 176" stroke-width=".8" opacity=".6" style="--d: 2.90s"/>
+          <path class="draw" pathLength="1" d="M1132 256 C1150 232 1166 214 1184 202" stroke-width=".8" opacity=".6" style="--d: 3.00s"/>
+          <path class="draw" pathLength="1" d="M1134 262 C1160 262 1184 266 1206 272" stroke-width=".8" opacity=".6" style="--d: 3.10s"/>
+          <path class="seed" d="M1124 255 C1128 247 1139 249 1139 258 C1139 267 1128 271 1123 264 C1120 261 1121 258 1124 255 Z" fill="currentColor" stroke="none" style="--d: 3.20s"/>
+      </g>
+    </svg>
+    <h1 class="sr-only">Samylla W. — Senior Product Designer and Design Engineer</h1>
+    <div class="quote">
+      <p lang="pt-BR" data-lang="pt" data-on="false"><span class="w" style="--d: 0.00s">Onde</span> <span class="w" style="--d: 0.06s">histórias</span> <span class="w" style="--d: 0.12s">viram</span> <span class="w" style="--d: 0.18s">ideias,</span> <span class="w" style="--d: 0.24s">e</span> <span class="w" style="--d: 0.30s">ideias</span> <span class="w" style="--d: 0.36s">se</span> <span class="w" style="--d: 0.42s">transformam</span> <span class="w" style="--d: 0.48s">em</span> <span class="w" style="--d: 0.54s">marcas</span> <span class="w" style="--d: 0.60s">e</span> <span class="w" style="--d: 0.66s">experiências.</span></p>
+      <p lang="en" data-lang="en" data-on="false" aria-hidden="true"><span class="w" style="--d: 0.00s">Where</span> <span class="w" style="--d: 0.06s">stories</span> <span class="w" style="--d: 0.12s">become</span> <span class="w" style="--d: 0.18s">ideas,</span> <span class="w" style="--d: 0.24s">and</span> <span class="w" style="--d: 0.30s">ideas</span> <span class="w" style="--d: 0.36s">turn</span> <span class="w" style="--d: 0.42s">into</span> <span class="w" style="--d: 0.48s">brands</span> <span class="w" style="--d: 0.54s">and</span> <span class="w" style="--d: 0.60s">experiences.</span></p>
+    </div>
+    <div class="lang" role="group" aria-label="Language of the statement">
+      <button type="button" data-set-lang="pt" aria-pressed="true">PT</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </section>
+</main>
+<footer class="site" style="min-height: 0; background: #FFFFFF; color: #161616; font-family: var(--sans)">
+  <div style="border-top: 1px solid var(--rule)">
+  <div class="ft">
+    <p class="t-meta c-3">© 2026 Samylla W.</p>
+    <ul style="display: flex; gap: 22px; flex-wrap: wrap">
+      <li><a class="t-meta" href="mailto:samyllacontato@gmail.com" style="display: inline-flex; min-height: 44px; align-items: center"><span class="u-link">Email</span></a></li>
+      <li><a class="t-meta" href="https://www.linkedin.com/in/samylla-w/" target="_blank" rel="noopener" style="display: inline-flex; min-height: 44px; align-items: center"><span class="u-link">LinkedIn</span></a></li>
+      <li><a class="t-meta" href="https://github.com/samyllaw" target="_blank" rel="noopener" style="display: inline-flex; min-height: 44px; align-items: center"><span class="u-link">GitHub</span></a></li>
+    </ul>
+    <p class="t-meta c-3" style="justify-self: end">Brazil · Remote</p>
+  </div>
+  </div>
+</footer>
+</div>
 </body>
 </html>
